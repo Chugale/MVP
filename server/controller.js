@@ -13,17 +13,16 @@ module.exports = {
       method: 'GET',
       url: poeNinjaApi_Currency
     }
-
     return axios(options)
       .then((response) => {
         console.log('this is response', response.data.lines)
         let currArr = response.data.lines;
-        return currArr.filter((currObj) => currObj.currencyTypeName.includes('Lens') === true
+
+        return currArr.filter((currObj) => currObj.currencyTypeName.includes('Lens') === true || currObj.currencyTypeName.includes('Divine Orb') === true
         )
       })
       .then((result) => {
         res.status(200).send(result)
       })
-
   }
 }

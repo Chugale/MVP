@@ -3,14 +3,16 @@ import axios from 'axios';
 import RegradeLens from './RegradeLens/RegradeLens.jsx';
 
 const App = () => {
-
+  const [divine, setDivine] = useState('');
 
 
   return (
     <div>
       <div>
         <label>Lens Price</label>
-        <RegradeLens />
+        <RegradeLens
+          setDivine={setDivine}
+          divine={divine}/>
       </div>
     </div>
   )

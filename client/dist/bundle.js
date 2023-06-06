@@ -12,16 +12,25 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "../../node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _RegradeLens_RegradeLens_jsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./RegradeLens/RegradeLens.jsx */ "./client/src/components/RegradeLens/RegradeLens.jsx");
+/* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/slicedToArray */ "./node_modules/@babel/runtime/helpers/esm/slicedToArray.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "../../node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _RegradeLens_RegradeLens_jsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./RegradeLens/RegradeLens.jsx */ "./client/src/components/RegradeLens/RegradeLens.jsx");
+
 
 
 
 var App = function App() {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("label", null, "Lens Price"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_RegradeLens_RegradeLens_jsx__WEBPACK_IMPORTED_MODULE_2__["default"], null)));
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(''),
+    _useState2 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__["default"])(_useState, 2),
+    divine = _useState2[0],
+    setDivine = _useState2[1];
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("label", null, "Lens Price"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement(_RegradeLens_RegradeLens_jsx__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    setDivine: setDivine,
+    divine: divine
+  })));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (App);
 
@@ -48,29 +57,32 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var RegradeLens = function RegradeLens() {
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(''),
+var RegradeLens = function RegradeLens(_ref) {
+  var setDivine = _ref.setDivine,
+    divine = _ref.divine;
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)([]),
     _useState2 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__["default"])(_useState, 2),
-    currency = _useState2[0],
-    setCurrency = _useState2[1];
-  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)([]),
-    _useState4 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__["default"])(_useState3, 2),
-    lens = _useState4[0],
-    setLens = _useState4[1];
+    lens = _useState2[0],
+    setLens = _useState2[1];
   var getLens = function getLens() {
     axios__WEBPACK_IMPORTED_MODULE_2___default().get('/api/lens').then(function (response) {
+      response.data.forEach(function (obj) {
+        if (obj.currencyTypeName === 'Divine Orb') {
+          setDivine(obj.receive.value);
+        }
+      });
       setLens(response.data);
     });
   };
   (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
     getLens();
   }, []);
-  var filtered = lens.filter(function (currObj) {
-    return currObj.currencyTypeName.includes('Lens') === true;
-  }).map(function (lenObj, ind) {
+  var filtered = lens.map(function (lenObj, ind) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement(_RegradeLensEntry_jsx__WEBPACK_IMPORTED_MODULE_3__["default"], {
       lenObj: lenObj,
-      key: ind
+      key: ind,
+      setDivine: setDivine,
+      divine: divine
     });
   });
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", null, filtered.length !== 0 ? filtered : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("p", null, "Loading..."));
@@ -97,8 +109,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var RegradeLensEntry = function RegradeLensEntry(_ref) {
-  var lenObj = _ref.lenObj;
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("label", null, lenObj.currencyTypeName, ": ", lenObj.receive.value.toFixed(1), " chaos"));
+  var lenObj = _ref.lenObj,
+    divine = _ref.divine;
+  var conversion = function conversion() {
+    return (lenObj.receive.value / divine).toFixed(2);
+  };
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("label", null, lenObj.currencyTypeName, ": ", lenObj.receive.value.toFixed(1), " chaos OR ", conversion(), " div"));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (RegradeLensEntry);
 
