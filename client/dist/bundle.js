@@ -18,18 +18,46 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "../../node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _RegradeLens_RegradeLens_jsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./RegradeLens/RegradeLens.jsx */ "./client/src/components/RegradeLens/RegradeLens.jsx");
+/* harmony import */ var _RegularGems_RegularGemsList_jsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./RegularGems/RegularGemsList.jsx */ "./client/src/components/RegularGems/RegularGemsList.jsx");
+
 
 
 
 
 var App = function App() {
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(''),
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)([]),
     _useState2 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__["default"])(_useState, 2),
-    divine = _useState2[0],
-    setDivine = _useState2[1];
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("label", null, "Lens Price"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement(_RegradeLens_RegradeLens_jsx__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    gems = _useState2[0],
+    setGems = _useState2[1];
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)([]),
+    _useState4 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__["default"])(_useState3, 2),
+    awakened = _useState4[0],
+    setAwakened = _useState4[1];
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(''),
+    _useState6 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__["default"])(_useState5, 2),
+    divine = _useState6[0],
+    setDivine = _useState6[1];
+  var getGems = function getGems() {
+    axios__WEBPACK_IMPORTED_MODULE_2___default().get('./api/gem_weight').then(function (response) {
+      setGems(response.data.regular);
+      setAwakened(response.data.awakened);
+    })["catch"](function (err) {
+      return console.log('APP side error', err);
+    });
+  };
+  (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
+    getGems();
+  }, []);
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("label", {
+    className: "text-blue-700"
+  }, "Lens Price"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement(_RegradeLens_RegradeLens_jsx__WEBPACK_IMPORTED_MODULE_3__["default"], {
     setDivine: setDivine,
     divine: divine
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("button", {
+    type: "button",
+    className: "text-black-1000 font-semibold bg-gradient-to-r from-red-600 via-blue-600 to-green-600 text-lg px-5 py-1 hover:bg-gradient-to-br focus:border-4 focus:outline-none focus:border-blue-800"
+  }, "Regular Gems"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement(_RegularGems_RegularGemsList_jsx__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    gems: gems
   })));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (App);
@@ -72,6 +100,8 @@ var RegradeLens = function RegradeLens(_ref) {
         }
       });
       setLens(response.data);
+    })["catch"](function (err) {
+      console.log('APP REGRADE error', err);
     });
   };
   (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
@@ -117,6 +147,70 @@ var RegradeLensEntry = function RegradeLensEntry(_ref) {
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("label", null, lenObj.currencyTypeName, ": ", lenObj.receive.value.toFixed(1), " chaos OR ", conversion(), " div"));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (RegradeLensEntry);
+
+/***/ }),
+
+/***/ "./client/src/components/RegularGems/RegularGemsList.jsx":
+/*!***************************************************************!*\
+  !*** ./client/src/components/RegularGems/RegularGemsList.jsx ***!
+  \***************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "../../node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _RegularGemsListEntry_jsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./RegularGemsListEntry.jsx */ "./client/src/components/RegularGems/RegularGemsListEntry.jsx");
+
+
+
+var RegularGemsList = function RegularGemsList(_ref) {
+  var gems = _ref.gems;
+  var value_div = gems.filter(function (gemObj) {
+    return gemObj.divineValue >= 1 === true;
+  }).map(function (gemObj, ind) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_RegularGemsListEntry_jsx__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      gemObj: gemObj,
+      key: ind
+    });
+  });
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("table", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("thead", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", null, "Name"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", null, "L/Q"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", null, "Price"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", null, "Superior"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", null, "Divergent"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", null, "Anomalous"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("th", null, "Phantasmal"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("tbody", null, value_div.length !== 0 ? value_div : null)));
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (RegularGemsList);
+
+/***/ }),
+
+/***/ "./client/src/components/RegularGems/RegularGemsListEntry.jsx":
+/*!********************************************************************!*\
+  !*** ./client/src/components/RegularGems/RegularGemsListEntry.jsx ***!
+  \********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "../../node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
+
+
+var div = 'https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQ3VycmVuY3lNb2RWYWx1ZXMiLCJ3IjoxLCJoIjoxLCJzY2FsZSI6MX1d/e1a54ff97d/CurrencyModValues.png';
+var RegularGemsListEntry = function RegularGemsListEntry(_ref) {
+  var gemObj = _ref.gemObj;
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", null, gemObj.name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", null, gemObj.gemLevel, " / ", gemObj.gemQuality), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", null, gemObj.divineValue, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("img", {
+    src: div,
+    className: "max-w-5 max-h-5 inline"
+  })));
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (RegularGemsListEntry);
 
 /***/ }),
 

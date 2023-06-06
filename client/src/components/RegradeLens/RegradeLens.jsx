@@ -15,6 +15,9 @@ const RegradeLens = ({setDivine, divine}) => {
       })
       setLens(response.data)
     })
+    .catch((err) => {
+      console.log('APP REGRADE error', err)
+    })
   }
   useEffect(() => {
     getLens()

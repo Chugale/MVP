@@ -13,3 +13,4 @@ CREATE TABLE gem_weight (
   divergent INT,
   phantasmal INT
 );
+
