@@ -196,19 +196,51 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "../../node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/slicedToArray */ "./node_modules/@babel/runtime/helpers/esm/slicedToArray.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "../../node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
+
 
 
 var div = 'https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQ3VycmVuY3lNb2RWYWx1ZXMiLCJ3IjoxLCJoIjoxLCJzY2FsZSI6MX1d/e1a54ff97d/CurrencyModValues.png';
 var RegularGemsListEntry = function RegularGemsListEntry(_ref) {
   var gemObj = _ref.gemObj;
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", null, gemObj.name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", null, gemObj.gemLevel, " / ", gemObj.gemQuality), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", null, gemObj.divineValue, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("img", {
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(''),
+    _useState2 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__["default"])(_useState, 2),
+    types = _useState2[0],
+    setTypes = _useState2[1];
+  var baseName = function baseName() {
+    var fullName = gemObj.name.split(' ').slice(1).join(' ');
+    console.log(fullName);
+    axios__WEBPACK_IMPORTED_MODULE_2___default().get('/db/regular_gems', {
+      params: {
+        name: fullName
+      }
+    }).then(function (response) {
+      console.log("this is reacted response ".concat(gemObj.name), response.data[0]);
+      if (response.data.length >= 1) {
+        setTypes(response.data[0]);
+      } else {
+        setTypes({
+          superior: 0,
+          anomalous: 0,
+          divergent: 0,
+          phantasmal: 0
+        });
+      }
+    })["catch"](function (error) {
+      console.log('this is react error', error);
+    });
+  };
+  (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
+    baseName();
+  }, [gemObj]);
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("td", null, gemObj.name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("td", null, gemObj.gemLevel, " / ", gemObj.gemQuality), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("td", null, gemObj.divineValue, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("img", {
     src: div,
     className: "max-w-5 max-h-5 inline"
-  })));
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("td", null, types.superior), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("td", null, types.divergent), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("td", null, types.anomalous), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("td", null, types.phantasmal));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (RegularGemsListEntry);
 

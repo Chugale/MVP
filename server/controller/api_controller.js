@@ -1,6 +1,5 @@
 const axios = require('axios');
 
-
 //edit league as needed
 
 const poeNinjaApi_Gems = `https://poe.ninja/api/data/itemoverview?league=Crucible&type=SkillGem`;
@@ -11,10 +10,7 @@ module.exports = {
   getLens: (req, res) => {
     const options = {
       method: 'GET',
-      url: poeNinjaApi_Currency,
-      params: {
-        count: 2
-      }
+      url: poeNinjaApi_Currency
     }
     return axios(options)
       .then((response) => {
@@ -39,11 +35,15 @@ module.exports = {
       .then((response) => {
         let gemArr = response.data.lines;
         let result = {}
-        result.regular = gemArr.filter((gemObj) => gemObj.gemLevel >= 20);
-        result.awakened = gemArr.filter((gemObj) => gemObj.name.includes('Awakened') === true);
+        let fullList = gemArr.filter((gemObj) => gemObj.gemLevel >= 20);
+        // result.awakened = gemArr.filter((gemObj) => gemObj.name.includes('Awakened') === true);
+        // console.log('API resuits', result.regular.slice(0, 10))
+        // console.log('api results', fullList)
+        result.regular = fullList.slice(0, 10)
         return result
       })
       .then((result) => {
+        // console.log('controller result', result)
         res.status(200).send(result)
       })
       .catch(err => {
