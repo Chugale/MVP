@@ -1,4 +1,5 @@
 -- \i /Users/ericlee/HackReactor/MVP/database/schema.sql;
+\c temp;
 DROP DATABASE IF EXISTS gems;
 CREATE DATABASE gems;
 
@@ -15,17 +16,17 @@ CREATE TABLE initial (
 CREATE TABLE gem_weight (
   id SERIAL PRIMARY KEY,
   name TEXT,
-  superior INT,
-  anomalous INT,
-  divergent INT,
-  phantasmal INT
+  superior INT DEFAULT 0,
+  anomalous INT DEFAULT 0,
+  divergent INT DEFAULT 0,
+  phantasmal INT DEFAULT 0
 );
 
 COPY initial(id, name, type, weight)
 FROM '/Users/ericlee/HackReactor/MVP/gems.csv'
 DELIMITER ','
-CSV HEADER
+CSV HEADER;
 
--- INSERT INTO gem_weight
--- SELECT (id, name, weight)
--- FROM intial
+INSERT INTO gem_weight (name)
+SELECT DISTINCT name FROM initial;
+

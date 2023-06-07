@@ -35,11 +35,15 @@ module.exports = {
       .then((response) => {
         let gemArr = response.data.lines;
         let result = {}
-        let fullList = gemArr.filter((gemObj) => gemObj.gemLevel >= 20);
+        let fullList = gemArr.filter((gemObj) => gemObj.gemLevel === 20 && gemObj.count >= 5);
+
         // result.awakened = gemArr.filter((gemObj) => gemObj.name.includes('Awakened') === true);
         // console.log('API resuits', result.regular.slice(0, 10))
+
         // console.log('api results', fullList)
-        result.regular = fullList.slice(0, 10)
+        //BELOW IS FOR TESTING
+        // result.regular = fullList.slice(0, 10)
+        result.regular = fullList
         return result
       })
       .then((result) => {

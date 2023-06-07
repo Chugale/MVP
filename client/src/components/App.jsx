@@ -9,6 +9,13 @@ const App = () => {
   const [divine, setDivine] = useState('');
 
   const getGems = () => {
+    // try {
+    //   const response = await axios.get('./api/gem_weight');
+    //   const res = response.data;
+    //   setGems(prevData => [...prevData, ...res])
+    // } catch(err) {
+    //   console.log('APP SIDE ERROR', err)
+    // }
     axios.get('./api/gem_weight')
       .then((response) => {
         setGems(response.data.regular)
@@ -22,7 +29,7 @@ const App = () => {
   }, []);
 
   return (
-    <div>
+    <div className="h-screen bg-gray-400">
       <div>
         <label className="text-blue-700">Lens Price</label>
         <RegradeLens

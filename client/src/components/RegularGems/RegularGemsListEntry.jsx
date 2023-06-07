@@ -9,14 +9,14 @@ const RegularGemsListEntry = ({gemObj}) => {
 
   const baseName = () => {
     let fullName = gemObj.name.split(' ').slice(1).join(' ');
-    console.log(fullName)
+    // console.log(fullName)
     axios.get('/db/regular_gems',{
       params: {
         name: fullName
       }
     })
     .then((response) => {
-      console.log(`this is reacted response ${gemObj.name}`, response.data[0])
+      // console.log(`this is reacted response ${gemObj.name}`, response.data[0])
       if(response.data.length  >= 1){
         setTypes(response.data[0])
       } else {
@@ -33,15 +33,15 @@ const RegularGemsListEntry = ({gemObj}) => {
   }, [gemObj])
 
   return (
-    <tr>
-      <td>{gemObj.name}</td>
-      <td>{gemObj.gemLevel} / {gemObj.gemQuality}</td>
-      <td>{gemObj.divineValue}
-        <img src={div} className="max-w-5 max-h-5 inline"></img></td>
-        <td>{types.superior}</td>
-        <td>{types.divergent}</td>
-        <td>{types.anomalous}</td>
-        <td>{types.phantasmal}</td>
+    <tr className="flex-box odd:bg-gray-400 even:bg-gray-300">
+      <td className="px-2 py-2">{gemObj.name}</td>
+      <td className="px-2 py-2">{gemObj.gemLevel} / {gemObj.gemQuality}</td>
+      <td className="flex px-2 py-2 justify-between">{gemObj.divineValue}
+        <img src={div} className="flex max-w-5 max-h-5 justify-between"></img></td>
+        <td className="px-2 py-2 text-center">{types.superior}</td>
+        <td className="px-2 py-2 text-center">{types.divergent}</td>
+        <td className="px-2 py-2 text-center">{types.anomalous}</td>
+        <td className="px-2 py-2 text-center">{types.phantasmal}</td>
     </tr>
   )
 

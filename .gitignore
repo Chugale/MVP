@@ -1,3 +1,5 @@
 node_modules
 gems.csv
 gems_novaal.csv
+client/dist/bundle.js
+client/dist/bundle.js.map
