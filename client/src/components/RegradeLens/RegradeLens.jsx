@@ -9,6 +9,7 @@ const RegradeLens = ({setDivine, divine}) => {
     axios.get('/api/lens')
     .then((response) => {
       response.data.forEach((obj) => {
+        console.log('this is response', obj)
         if(obj.currencyTypeName === 'Divine Orb') {
           setDivine(obj.receive.value)
         }

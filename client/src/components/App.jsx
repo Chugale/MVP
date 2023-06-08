@@ -1,12 +1,17 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, lazy, Suspense} from 'react';
 import axios from 'axios';
-import RegradeLens from './RegradeLens/RegradeLens.jsx';
-import RegularGemsList from './RegularGems/RegularGemsList.jsx';
+// const OtherComponent = React.lazy(() => import('./OtherComponent'));
+const RegradeLens = React.lazy(() => import('./RegradeLens/RegradeLens.jsx'));
+const RegularGemsList = React.lazy(() => import('./RegularGems/RegularGemsList.jsx'));
+// import RegularGemsList from './RegularGems/RegularGemsList.jsx';
+import Buttons from './Buttons.jsx';
 
 const App = () => {
+
   const [gems, setGems] = useState([]);
-  const [awakened, setAwakened] = useState([])
+  const [awakened, setAwakened] = useState([]);
   const [divine, setDivine] = useState('');
+  // const []
 
   const getGems = () => {
     // try {
@@ -29,19 +34,20 @@ const App = () => {
   }, []);
 
   return (
-    <div className="h-screen bg-gray-400">
-      <div>
-        <label className="text-blue-700">Lens Price</label>
-        <RegradeLens
-          setDivine={setDivine}
-          divine={divine}/>
-      </div>
-      <div>
-        <button type="button"
-          className="text-black-1000 font-semibold bg-gradient-to-r from-red-600 via-blue-600 to-green-600 text-lg px-5 py-1 hover:bg-gradient-to-br focus:border-4 focus:outline-none focus:border-blue-800">Regular Gems</button>
-        <RegularGemsList gems={gems}/>
+    <div >
+      <Suspense fallback={<h1>Still Loading…</h1>}>
+        <div className="flex justify-center">
+          <label className="text-black-700 mr-4 font-bold">Lens Price: </label>
+            <RegradeLens
+              setDivine={setDivine}
+              divine={divine}/>
+        </div>
+        <div className="inline-flex">
+          <Buttons />
+          <RegularGemsList gems={gems}/>
         {/* <AwakenedGemList awakened={awakened} /> */}
-      </div>
+        </div>
+      </Suspense>
     </div>
   )
 }

@@ -17,12 +17,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "../../node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _RegradeLens_RegradeLens_jsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./RegradeLens/RegradeLens.jsx */ "./client/src/components/RegradeLens/RegradeLens.jsx");
-/* harmony import */ var _RegularGems_RegularGemsList_jsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./RegularGems/RegularGemsList.jsx */ "./client/src/components/RegularGems/RegularGemsList.jsx");
+/* harmony import */ var _Buttons_jsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Buttons.jsx */ "./client/src/components/Buttons.jsx");
 
 
 
-
+// const OtherComponent = React.lazy(() => import('./OtherComponent'));
+var RegradeLens = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().lazy(function () {
+  return __webpack_require__.e(/*! import() */ "client_src_components_RegradeLens_RegradeLens_jsx").then(__webpack_require__.bind(__webpack_require__, /*! ./RegradeLens/RegradeLens.jsx */ "./client/src/components/RegradeLens/RegradeLens.jsx"));
+});
+var RegularGemsList = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().lazy(function () {
+  return Promise.all(/*! import() */[__webpack_require__.e("vendors-node_modules_react-infinite-scroll-component_dist_index_es_js"), __webpack_require__.e("client_src_components_RegularGems_RegularGemsList_jsx")]).then(__webpack_require__.bind(__webpack_require__, /*! ./RegularGems/RegularGemsList.jsx */ "./client/src/components/RegularGems/RegularGemsList.jsx"));
+});
+// import RegularGemsList from './RegularGems/RegularGemsList.jsx';
 
 var App = function App() {
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)([]),
@@ -37,6 +43,8 @@ var App = function App() {
     _useState6 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__["default"])(_useState5, 2),
     divine = _useState6[0],
     setDivine = _useState6[1];
+  // const []
+
   var getGems = function getGems() {
     // try {
     //   const response = await axios.get('./api/gem_weight');
@@ -55,85 +63,29 @@ var App = function App() {
   (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
     getGems();
   }, []);
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", {
-    className: "h-screen bg-gray-400"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("label", {
-    className: "text-blue-700"
-  }, "Lens Price"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement(_RegradeLens_RegradeLens_jsx__WEBPACK_IMPORTED_MODULE_3__["default"], {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement(react__WEBPACK_IMPORTED_MODULE_1__.Suspense, {
+    fallback: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("h1", null, "Still Loading\u2026")
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", {
+    className: "flex justify-center"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("label", {
+    className: "text-black-700 mr-4 font-bold"
+  }, "Lens Price: "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement(RegradeLens, {
     setDivine: setDivine,
     divine: divine
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("button", {
-    type: "button",
-    className: "text-black-1000 font-semibold bg-gradient-to-r from-red-600 via-blue-600 to-green-600 text-lg px-5 py-1 hover:bg-gradient-to-br focus:border-4 focus:outline-none focus:border-blue-800"
-  }, "Regular Gems"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement(_RegularGems_RegularGemsList_jsx__WEBPACK_IMPORTED_MODULE_4__["default"], {
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", {
+    className: "inline-flex"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement(_Buttons_jsx__WEBPACK_IMPORTED_MODULE_3__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement(RegularGemsList, {
     gems: gems
-  })));
+  }))));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (App);
 
 /***/ }),
 
-/***/ "./client/src/components/RegradeLens/RegradeLens.jsx":
-/*!***********************************************************!*\
-  !*** ./client/src/components/RegradeLens/RegradeLens.jsx ***!
-  \***********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/slicedToArray */ "./node_modules/@babel/runtime/helpers/esm/slicedToArray.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "../../node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _RegradeLensEntry_jsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./RegradeLensEntry.jsx */ "./client/src/components/RegradeLens/RegradeLensEntry.jsx");
-
-
-
-
-var RegradeLens = function RegradeLens(_ref) {
-  var setDivine = _ref.setDivine,
-    divine = _ref.divine;
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)([]),
-    _useState2 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__["default"])(_useState, 2),
-    lens = _useState2[0],
-    setLens = _useState2[1];
-  var getLens = function getLens() {
-    axios__WEBPACK_IMPORTED_MODULE_2___default().get('/api/lens').then(function (response) {
-      response.data.forEach(function (obj) {
-        if (obj.currencyTypeName === 'Divine Orb') {
-          setDivine(obj.receive.value);
-        }
-      });
-      setLens(response.data);
-    })["catch"](function (err) {
-      console.log('APP REGRADE error', err);
-    });
-  };
-  (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
-    getLens();
-  }, []);
-  var filtered = lens.map(function (lenObj, ind) {
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement(_RegradeLensEntry_jsx__WEBPACK_IMPORTED_MODULE_3__["default"], {
-      lenObj: lenObj,
-      key: ind,
-      setDivine: setDivine,
-      divine: divine
-    });
-  });
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", null, filtered.length !== 0 ? filtered : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("p", null, "Loading..."));
-};
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (RegradeLens);
-
-/***/ }),
-
-/***/ "./client/src/components/RegradeLens/RegradeLensEntry.jsx":
-/*!****************************************************************!*\
-  !*** ./client/src/components/RegradeLens/RegradeLensEntry.jsx ***!
-  \****************************************************************/
+/***/ "./client/src/components/Buttons.jsx":
+/*!*******************************************!*\
+  !*** ./client/src/components/Buttons.jsx ***!
+  \*******************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -143,195 +95,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "../../node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
 
-
-var chaos = 'https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQ3VycmVuY3lSZXJvbGxSYXJlIiwidyI6MSwiaCI6MSwic2NhbGUiOjF9XQ/d119a0d734/CurrencyRerollRare.png';
-var div = 'https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQ3VycmVuY3lNb2RWYWx1ZXMiLCJ3IjoxLCJoIjoxLCJzY2FsZSI6MX1d/e1a54ff97d/CurrencyModValues.png';
-var RegradeLensEntry = function RegradeLensEntry(_ref) {
-  var lenObj = _ref.lenObj,
-    divine = _ref.divine;
-  var conversion = function conversion() {
-    return (lenObj.receive.value / divine).toFixed(2);
-  };
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("label", null, lenObj.currencyTypeName, ": ", lenObj.receive.value.toFixed(1), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("img", {
-    src: chaos,
-    className: "max-w-5 max-h-5 inline"
-  }), " OR ", conversion(), " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("img", {
-    src: div,
-    className: "max-w-5 max-h-5 inline"
-  })));
+var Buttons = function Buttons() {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "my-8"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", {
+    type: "button",
+    className: "flex text-center text-black-1000 font-semibold bg-gradient-to-r from-red-600 via-blue-600 to-green-600 text-lg px-5 py-1 hover:bg-gradient-to-br focus:border-4 focus:outline-none focus:border-blue-800 w-48"
+  }, "Regular Gems"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", {
+    type: "button",
+    className: "flex text-center text-black-1000 font-semibold bg-gradient-to-r from-red-600 via-blue-600 to-green-600 text-lg px-5 py-1 hover:bg-gradient-to-br focus:border-4 focus:outline-none focus:border-blue-800 w-48"
+  }, "Awakened Gems"));
 };
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (RegradeLensEntry);
-
-/***/ }),
-
-/***/ "./client/src/components/RegularGems/RegularGemsList.jsx":
-/*!***************************************************************!*\
-  !*** ./client/src/components/RegularGems/RegularGemsList.jsx ***!
-  \***************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/slicedToArray */ "./node_modules/@babel/runtime/helpers/esm/slicedToArray.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "../../node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _RegularGemsListEntry_jsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./RegularGemsListEntry.jsx */ "./client/src/components/RegularGems/RegularGemsListEntry.jsx");
-/* harmony import */ var react_infinite_scroll_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-infinite-scroll-component */ "./node_modules/react-infinite-scroll-component/dist/index.es.js");
-
-
-
-
-
-var RegularGemsList = function RegularGemsList(_ref) {
-  var gems = _ref.gems;
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(false),
-    _useState2 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__["default"])(_useState, 2),
-    isLoading = _useState2[0],
-    setIsLoading = _useState2[1];
-  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(null),
-    _useState4 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__["default"])(_useState3, 2),
-    error = _useState4[0],
-    setError = _useState4[1];
-  var value_div = gems.filter(function (gemObj) {
-    return gemObj.divineValue >= 1 === true;
-  }).map(function (gemObj, ind) {
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement(_RegularGemsListEntry_jsx__WEBPACK_IMPORTED_MODULE_3__["default"], {
-      gemObj: gemObj,
-      key: ind
-    });
-  });
-
-  // const handleScroll = () => {
-  //   // stub of object instead of window
-  //   // document.documentElement.offsetHeight
-  //   if (window.innerHeight + document.documentElement.scrollTop >= 400 || isLoading) {
-  //   }
-  // };
-  // useEffect(() => {
-  //   window.addEventListener('scroll', handleScroll);
-  //   return () => window.removeEventListener('scroll', handleScroll);
-  // }, [isLoading]);
-
-  // max-height: 650px;
-  // overflow-y: scroll;
-  // margin-bottom: 40px;
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", {
-    className: "relative overflow-y-auto max-h-[32rem]"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("table", {
-    className: "border-spacing-5 py-3 divide-y divide-gray-300 bg-gray-500t"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("thead", {
-    className: "flex-box"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("th", {
-    scope: "col",
-    className: "px-2 py-2"
-  }, "Name"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("th", {
-    scope: "col",
-    className: "px-2 py-2"
-  }, "L/Q"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("th", {
-    scope: "col",
-    className: "px-2 py-2"
-  }, "Price"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("th", {
-    scope: "col",
-    className: "px-2 py-2"
-  }, "Superior"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("th", {
-    scope: "col",
-    className: "px-2 py-2"
-  }, "Divergent"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("th", {
-    scope: "col",
-    className: "px-2 py-2"
-  }, "Anomalous"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("th", {
-    scope: "col",
-    className: "px-2 py-2"
-  }, "Phantasmal"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("tbody", {
-    className: "flex-box"
-  }, value_div.length !== 0 ? value_div : null)));
-};
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (RegularGemsList);
-
-/***/ }),
-
-/***/ "./client/src/components/RegularGems/RegularGemsListEntry.jsx":
-/*!********************************************************************!*\
-  !*** ./client/src/components/RegularGems/RegularGemsListEntry.jsx ***!
-  \********************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/slicedToArray */ "./node_modules/@babel/runtime/helpers/esm/slicedToArray.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "../../node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
-
-
-
-var div = 'https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQ3VycmVuY3lNb2RWYWx1ZXMiLCJ3IjoxLCJoIjoxLCJzY2FsZSI6MX1d/e1a54ff97d/CurrencyModValues.png';
-var RegularGemsListEntry = function RegularGemsListEntry(_ref) {
-  var gemObj = _ref.gemObj;
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(''),
-    _useState2 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__["default"])(_useState, 2),
-    types = _useState2[0],
-    setTypes = _useState2[1];
-  var baseName = function baseName() {
-    var fullName = gemObj.name.split(' ').slice(1).join(' ');
-    // console.log(fullName)
-    axios__WEBPACK_IMPORTED_MODULE_2___default().get('/db/regular_gems', {
-      params: {
-        name: fullName
-      }
-    }).then(function (response) {
-      // console.log(`this is reacted response ${gemObj.name}`, response.data[0])
-      if (response.data.length >= 1) {
-        setTypes(response.data[0]);
-      } else {
-        setTypes({
-          superior: 0,
-          anomalous: 0,
-          divergent: 0,
-          phantasmal: 0
-        });
-      }
-    })["catch"](function (error) {
-      console.log('this is react error', error);
-    });
-  };
-  (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
-    baseName();
-  }, [gemObj]);
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("tr", {
-    className: "flex-box odd:bg-gray-400 even:bg-gray-300"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("td", {
-    className: "px-2 py-2"
-  }, gemObj.name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("td", {
-    className: "px-2 py-2"
-  }, gemObj.gemLevel, " / ", gemObj.gemQuality), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("td", {
-    className: "flex px-2 py-2 justify-between"
-  }, gemObj.divineValue, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("img", {
-    src: div,
-    className: "flex max-w-5 max-h-5 justify-between"
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("td", {
-    className: "px-2 py-2 text-center"
-  }, types.superior), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("td", {
-    className: "px-2 py-2 text-center"
-  }, types.divergent), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("td", {
-    className: "px-2 py-2 text-center"
-  }, types.anomalous), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("td", {
-    className: "px-2 py-2 text-center"
-  }, types.phantasmal));
-};
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (RegularGemsListEntry);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Buttons);
 
 /***/ }),
 
@@ -30286,470 +30062,6 @@ if (false) {} else {
 
 /***/ }),
 
-/***/ "./node_modules/react-infinite-scroll-component/dist/index.es.js":
-/*!***********************************************************************!*\
-  !*** ./node_modules/react-infinite-scroll-component/dist/index.es.js ***!
-  \***********************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-
-
-/*! *****************************************************************************
-Copyright (c) Microsoft Corporation. All rights reserved.
-Licensed under the Apache License, Version 2.0 (the "License"); you may not use
-this file except in compliance with the License. You may obtain a copy of the
-License at http://www.apache.org/licenses/LICENSE-2.0
-
-THIS CODE IS PROVIDED ON AN *AS IS* BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-KIND, EITHER EXPRESS OR IMPLIED, INCLUDING WITHOUT LIMITATION ANY IMPLIED
-WARRANTIES OR CONDITIONS OF TITLE, FITNESS FOR A PARTICULAR PURPOSE,
-MERCHANTABLITY OR NON-INFRINGEMENT.
-
-See the Apache Version 2.0 License for specific language governing permissions
-and limitations under the License.
-***************************************************************************** */
-/* global Reflect, Promise */
-
-var extendStatics = function(d, b) {
-    extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return extendStatics(d, b);
-};
-
-function __extends(d, b) {
-    extendStatics(d, b);
-    function __() { this.constructor = d; }
-    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-}
-
-var __assign = function() {
-    __assign = Object.assign || function __assign(t) {
-        for (var s, i = 1, n = arguments.length; i < n; i++) {
-            s = arguments[i];
-            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
-        }
-        return t;
-    };
-    return __assign.apply(this, arguments);
-};
-
-/* eslint-disable no-undefined,no-param-reassign,no-shadow */
-
-/**
- * Throttle execution of a function. Especially useful for rate limiting
- * execution of handlers on events like resize and scroll.
- *
- * @param  {Number}    delay          A zero-or-greater delay in milliseconds. For event callbacks, values around 100 or 250 (or even higher) are most useful.
- * @param  {Boolean}   [noTrailing]   Optional, defaults to false. If noTrailing is true, callback will only execute every `delay` milliseconds while the
- *                                    throttled-function is being called. If noTrailing is false or unspecified, callback will be executed one final time
- *                                    after the last throttled-function call. (After the throttled-function has not been called for `delay` milliseconds,
- *                                    the internal counter is reset)
- * @param  {Function}  callback       A function to be executed after delay milliseconds. The `this` context and all arguments are passed through, as-is,
- *                                    to `callback` when the throttled-function is executed.
- * @param  {Boolean}   [debounceMode] If `debounceMode` is true (at begin), schedule `clear` to execute after `delay` ms. If `debounceMode` is false (at end),
- *                                    schedule `callback` to execute after `delay` ms.
- *
- * @return {Function}  A new, throttled, function.
- */
-function throttle (delay, noTrailing, callback, debounceMode) {
-  /*
-   * After wrapper has stopped being called, this timeout ensures that
-   * `callback` is executed at the proper times in `throttle` and `end`
-   * debounce modes.
-   */
-  var timeoutID;
-  var cancelled = false; // Keep track of the last time `callback` was executed.
-
-  var lastExec = 0; // Function to clear existing timeout
-
-  function clearExistingTimeout() {
-    if (timeoutID) {
-      clearTimeout(timeoutID);
-    }
-  } // Function to cancel next exec
-
-
-  function cancel() {
-    clearExistingTimeout();
-    cancelled = true;
-  } // `noTrailing` defaults to falsy.
-
-
-  if (typeof noTrailing !== 'boolean') {
-    debounceMode = callback;
-    callback = noTrailing;
-    noTrailing = undefined;
-  }
-  /*
-   * The `wrapper` function encapsulates all of the throttling / debouncing
-   * functionality and when executed will limit the rate at which `callback`
-   * is executed.
-   */
-
-
-  function wrapper() {
-    var self = this;
-    var elapsed = Date.now() - lastExec;
-    var args = arguments;
-
-    if (cancelled) {
-      return;
-    } // Execute `callback` and update the `lastExec` timestamp.
-
-
-    function exec() {
-      lastExec = Date.now();
-      callback.apply(self, args);
-    }
-    /*
-     * If `debounceMode` is true (at begin) this is used to clear the flag
-     * to allow future `callback` executions.
-     */
-
-
-    function clear() {
-      timeoutID = undefined;
-    }
-
-    if (debounceMode && !timeoutID) {
-      /*
-       * Since `wrapper` is being called for the first time and
-       * `debounceMode` is true (at begin), execute `callback`.
-       */
-      exec();
-    }
-
-    clearExistingTimeout();
-
-    if (debounceMode === undefined && elapsed > delay) {
-      /*
-       * In throttle mode, if `delay` time has been exceeded, execute
-       * `callback`.
-       */
-      exec();
-    } else if (noTrailing !== true) {
-      /*
-       * In trailing throttle mode, since `delay` time has not been
-       * exceeded, schedule `callback` to execute `delay` ms after most
-       * recent execution.
-       *
-       * If `debounceMode` is true (at begin), schedule `clear` to execute
-       * after `delay` ms.
-       *
-       * If `debounceMode` is false (at end), schedule `callback` to
-       * execute after `delay` ms.
-       */
-      timeoutID = setTimeout(debounceMode ? clear : exec, debounceMode === undefined ? delay - elapsed : delay);
-    }
-  }
-
-  wrapper.cancel = cancel; // Return the wrapper function.
-
-  return wrapper;
-}
-
-var ThresholdUnits = {
-    Pixel: 'Pixel',
-    Percent: 'Percent',
-};
-var defaultThreshold = {
-    unit: ThresholdUnits.Percent,
-    value: 0.8,
-};
-function parseThreshold(scrollThreshold) {
-    if (typeof scrollThreshold === 'number') {
-        return {
-            unit: ThresholdUnits.Percent,
-            value: scrollThreshold * 100,
-        };
-    }
-    if (typeof scrollThreshold === 'string') {
-        if (scrollThreshold.match(/^(\d*(\.\d+)?)px$/)) {
-            return {
-                unit: ThresholdUnits.Pixel,
-                value: parseFloat(scrollThreshold),
-            };
-        }
-        if (scrollThreshold.match(/^(\d*(\.\d+)?)%$/)) {
-            return {
-                unit: ThresholdUnits.Percent,
-                value: parseFloat(scrollThreshold),
-            };
-        }
-        console.warn('scrollThreshold format is invalid. Valid formats: "120px", "50%"...');
-        return defaultThreshold;
-    }
-    console.warn('scrollThreshold should be string or number');
-    return defaultThreshold;
-}
-
-var InfiniteScroll = /** @class */ (function (_super) {
-    __extends(InfiniteScroll, _super);
-    function InfiniteScroll(props) {
-        var _this = _super.call(this, props) || this;
-        _this.lastScrollTop = 0;
-        _this.actionTriggered = false;
-        // variables to keep track of pull down behaviour
-        _this.startY = 0;
-        _this.currentY = 0;
-        _this.dragging = false;
-        // will be populated in componentDidMount
-        // based on the height of the pull down element
-        _this.maxPullDownDistance = 0;
-        _this.getScrollableTarget = function () {
-            if (_this.props.scrollableTarget instanceof HTMLElement)
-                return _this.props.scrollableTarget;
-            if (typeof _this.props.scrollableTarget === 'string') {
-                return document.getElementById(_this.props.scrollableTarget);
-            }
-            if (_this.props.scrollableTarget === null) {
-                console.warn("You are trying to pass scrollableTarget but it is null. This might\n        happen because the element may not have been added to DOM yet.\n        See https://github.com/ankeetmaini/react-infinite-scroll-component/issues/59 for more info.\n      ");
-            }
-            return null;
-        };
-        _this.onStart = function (evt) {
-            if (_this.lastScrollTop)
-                return;
-            _this.dragging = true;
-            if (evt instanceof MouseEvent) {
-                _this.startY = evt.pageY;
-            }
-            else if (evt instanceof TouchEvent) {
-                _this.startY = evt.touches[0].pageY;
-            }
-            _this.currentY = _this.startY;
-            if (_this._infScroll) {
-                _this._infScroll.style.willChange = 'transform';
-                _this._infScroll.style.transition = "transform 0.2s cubic-bezier(0,0,0.31,1)";
-            }
-        };
-        _this.onMove = function (evt) {
-            if (!_this.dragging)
-                return;
-            if (evt instanceof MouseEvent) {
-                _this.currentY = evt.pageY;
-            }
-            else if (evt instanceof TouchEvent) {
-                _this.currentY = evt.touches[0].pageY;
-            }
-            // user is scrolling down to up
-            if (_this.currentY < _this.startY)
-                return;
-            if (_this.currentY - _this.startY >=
-                Number(_this.props.pullDownToRefreshThreshold)) {
-                _this.setState({
-                    pullToRefreshThresholdBreached: true,
-                });
-            }
-            // so you can drag upto 1.5 times of the maxPullDownDistance
-            if (_this.currentY - _this.startY > _this.maxPullDownDistance * 1.5)
-                return;
-            if (_this._infScroll) {
-                _this._infScroll.style.overflow = 'visible';
-                _this._infScroll.style.transform = "translate3d(0px, " + (_this.currentY -
-                    _this.startY) + "px, 0px)";
-            }
-        };
-        _this.onEnd = function () {
-            _this.startY = 0;
-            _this.currentY = 0;
-            _this.dragging = false;
-            if (_this.state.pullToRefreshThresholdBreached) {
-                _this.props.refreshFunction && _this.props.refreshFunction();
-                _this.setState({
-                    pullToRefreshThresholdBreached: false,
-                });
-            }
-            requestAnimationFrame(function () {
-                // this._infScroll
-                if (_this._infScroll) {
-                    _this._infScroll.style.overflow = 'auto';
-                    _this._infScroll.style.transform = 'none';
-                    _this._infScroll.style.willChange = 'unset';
-                }
-            });
-        };
-        _this.onScrollListener = function (event) {
-            if (typeof _this.props.onScroll === 'function') {
-                // Execute this callback in next tick so that it does not affect the
-                // functionality of the library.
-                setTimeout(function () { return _this.props.onScroll && _this.props.onScroll(event); }, 0);
-            }
-            var target = _this.props.height || _this._scrollableNode
-                ? event.target
-                : document.documentElement.scrollTop
-                    ? document.documentElement
-                    : document.body;
-            // return immediately if the action has already been triggered,
-            // prevents multiple triggers.
-            if (_this.actionTriggered)
-                return;
-            var atBottom = _this.props.inverse
-                ? _this.isElementAtTop(target, _this.props.scrollThreshold)
-                : _this.isElementAtBottom(target, _this.props.scrollThreshold);
-            // call the `next` function in the props to trigger the next data fetch
-            if (atBottom && _this.props.hasMore) {
-                _this.actionTriggered = true;
-                _this.setState({ showLoader: true });
-                _this.props.next && _this.props.next();
-            }
-            _this.lastScrollTop = target.scrollTop;
-        };
-        _this.state = {
-            showLoader: false,
-            pullToRefreshThresholdBreached: false,
-            prevDataLength: props.dataLength,
-        };
-        _this.throttledOnScrollListener = throttle(150, _this.onScrollListener).bind(_this);
-        _this.onStart = _this.onStart.bind(_this);
-        _this.onMove = _this.onMove.bind(_this);
-        _this.onEnd = _this.onEnd.bind(_this);
-        return _this;
-    }
-    InfiniteScroll.prototype.componentDidMount = function () {
-        if (typeof this.props.dataLength === 'undefined') {
-            throw new Error("mandatory prop \"dataLength\" is missing. The prop is needed" +
-                " when loading more content. Check README.md for usage");
-        }
-        this._scrollableNode = this.getScrollableTarget();
-        this.el = this.props.height
-            ? this._infScroll
-            : this._scrollableNode || window;
-        if (this.el) {
-            this.el.addEventListener('scroll', this
-                .throttledOnScrollListener);
-        }
-        if (typeof this.props.initialScrollY === 'number' &&
-            this.el &&
-            this.el instanceof HTMLElement &&
-            this.el.scrollHeight > this.props.initialScrollY) {
-            this.el.scrollTo(0, this.props.initialScrollY);
-        }
-        if (this.props.pullDownToRefresh && this.el) {
-            this.el.addEventListener('touchstart', this.onStart);
-            this.el.addEventListener('touchmove', this.onMove);
-            this.el.addEventListener('touchend', this.onEnd);
-            this.el.addEventListener('mousedown', this.onStart);
-            this.el.addEventListener('mousemove', this.onMove);
-            this.el.addEventListener('mouseup', this.onEnd);
-            // get BCR of pullDown element to position it above
-            this.maxPullDownDistance =
-                (this._pullDown &&
-                    this._pullDown.firstChild &&
-                    this._pullDown.firstChild.getBoundingClientRect()
-                        .height) ||
-                    0;
-            this.forceUpdate();
-            if (typeof this.props.refreshFunction !== 'function') {
-                throw new Error("Mandatory prop \"refreshFunction\" missing.\n          Pull Down To Refresh functionality will not work\n          as expected. Check README.md for usage'");
-            }
-        }
-    };
-    InfiniteScroll.prototype.componentWillUnmount = function () {
-        if (this.el) {
-            this.el.removeEventListener('scroll', this
-                .throttledOnScrollListener);
-            if (this.props.pullDownToRefresh) {
-                this.el.removeEventListener('touchstart', this.onStart);
-                this.el.removeEventListener('touchmove', this.onMove);
-                this.el.removeEventListener('touchend', this.onEnd);
-                this.el.removeEventListener('mousedown', this.onStart);
-                this.el.removeEventListener('mousemove', this.onMove);
-                this.el.removeEventListener('mouseup', this.onEnd);
-            }
-        }
-    };
-    InfiniteScroll.prototype.componentDidUpdate = function (prevProps) {
-        // do nothing when dataLength is unchanged
-        if (this.props.dataLength === prevProps.dataLength)
-            return;
-        this.actionTriggered = false;
-        // update state when new data was sent in
-        this.setState({
-            showLoader: false,
-        });
-    };
-    InfiniteScroll.getDerivedStateFromProps = function (nextProps, prevState) {
-        var dataLengthChanged = nextProps.dataLength !== prevState.prevDataLength;
-        // reset when data changes
-        if (dataLengthChanged) {
-            return __assign(__assign({}, prevState), { prevDataLength: nextProps.dataLength });
-        }
-        return null;
-    };
-    InfiniteScroll.prototype.isElementAtTop = function (target, scrollThreshold) {
-        if (scrollThreshold === void 0) { scrollThreshold = 0.8; }
-        var clientHeight = target === document.body || target === document.documentElement
-            ? window.screen.availHeight
-            : target.clientHeight;
-        var threshold = parseThreshold(scrollThreshold);
-        if (threshold.unit === ThresholdUnits.Pixel) {
-            return (target.scrollTop <=
-                threshold.value + clientHeight - target.scrollHeight + 1);
-        }
-        return (target.scrollTop <=
-            threshold.value / 100 + clientHeight - target.scrollHeight + 1);
-    };
-    InfiniteScroll.prototype.isElementAtBottom = function (target, scrollThreshold) {
-        if (scrollThreshold === void 0) { scrollThreshold = 0.8; }
-        var clientHeight = target === document.body || target === document.documentElement
-            ? window.screen.availHeight
-            : target.clientHeight;
-        var threshold = parseThreshold(scrollThreshold);
-        if (threshold.unit === ThresholdUnits.Pixel) {
-            return (target.scrollTop + clientHeight >= target.scrollHeight - threshold.value);
-        }
-        return (target.scrollTop + clientHeight >=
-            (threshold.value / 100) * target.scrollHeight);
-    };
-    InfiniteScroll.prototype.render = function () {
-        var _this = this;
-        var style = __assign({ height: this.props.height || 'auto', overflow: 'auto', WebkitOverflowScrolling: 'touch' }, this.props.style);
-        var hasChildren = this.props.hasChildren ||
-            !!(this.props.children &&
-                this.props.children instanceof Array &&
-                this.props.children.length);
-        // because heighted infiniteScroll visualy breaks
-        // on drag down as overflow becomes visible
-        var outerDivStyle = this.props.pullDownToRefresh && this.props.height
-            ? { overflow: 'auto' }
-            : {};
-        return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { style: outerDivStyle, className: "infinite-scroll-component__outerdiv" },
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "infinite-scroll-component " + (this.props.className || ''), ref: function (infScroll) { return (_this._infScroll = infScroll); }, style: style },
-                this.props.pullDownToRefresh && (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { style: { position: 'relative' }, ref: function (pullDown) { return (_this._pullDown = pullDown); } },
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { style: {
-                            position: 'absolute',
-                            left: 0,
-                            right: 0,
-                            top: -1 * this.maxPullDownDistance,
-                        } }, this.state.pullToRefreshThresholdBreached
-                        ? this.props.releaseToRefreshContent
-                        : this.props.pullDownToRefreshContent))),
-                this.props.children,
-                !this.state.showLoader &&
-                    !hasChildren &&
-                    this.props.hasMore &&
-                    this.props.loader,
-                this.state.showLoader && this.props.hasMore && this.props.loader,
-                !this.props.hasMore && this.props.endMessage)));
-    };
-    return InfiniteScroll;
-}(react__WEBPACK_IMPORTED_MODULE_0__.Component));
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (InfiniteScroll);
-//# sourceMappingURL=index.es.js.map
-
-
-/***/ }),
-
 /***/ "./node_modules/react/cjs/react.development.js":
 /*!*****************************************************!*\
   !*** ./node_modules/react/cjs/react.development.js ***!
@@ -36413,6 +35725,9 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 		return module.exports;
 /******/ 	}
 /******/ 	
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = __webpack_modules__;
+/******/ 	
 /************************************************************************/
 /******/ 	/* webpack/runtime/compat get default export */
 /******/ 	(() => {
@@ -36438,9 +35753,88 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 		};
 /******/ 	})();
 /******/ 	
+/******/ 	/* webpack/runtime/ensure chunk */
+/******/ 	(() => {
+/******/ 		__webpack_require__.f = {};
+/******/ 		// This file contains only the entry chunk.
+/******/ 		// The chunk loading function for additional chunks
+/******/ 		__webpack_require__.e = (chunkId) => {
+/******/ 			return Promise.all(Object.keys(__webpack_require__.f).reduce((promises, key) => {
+/******/ 				__webpack_require__.f[key](chunkId, promises);
+/******/ 				return promises;
+/******/ 			}, []));
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/get javascript chunk filename */
+/******/ 	(() => {
+/******/ 		// This function allow to reference async chunks
+/******/ 		__webpack_require__.u = (chunkId) => {
+/******/ 			// return url for filenames based on template
+/******/ 			return "" + chunkId + ".bundle.js";
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/global */
+/******/ 	(() => {
+/******/ 		__webpack_require__.g = (function() {
+/******/ 			if (typeof globalThis === 'object') return globalThis;
+/******/ 			try {
+/******/ 				return this || new Function('return this')();
+/******/ 			} catch (e) {
+/******/ 				if (typeof window === 'object') return window;
+/******/ 			}
+/******/ 		})();
+/******/ 	})();
+/******/ 	
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
 /******/ 	(() => {
 /******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/load script */
+/******/ 	(() => {
+/******/ 		var inProgress = {};
+/******/ 		var dataWebpackPrefix = "mvp:";
+/******/ 		// loadScript function to load a script via script tag
+/******/ 		__webpack_require__.l = (url, done, key, chunkId) => {
+/******/ 			if(inProgress[url]) { inProgress[url].push(done); return; }
+/******/ 			var script, needAttach;
+/******/ 			if(key !== undefined) {
+/******/ 				var scripts = document.getElementsByTagName("script");
+/******/ 				for(var i = 0; i < scripts.length; i++) {
+/******/ 					var s = scripts[i];
+/******/ 					if(s.getAttribute("src") == url || s.getAttribute("data-webpack") == dataWebpackPrefix + key) { script = s; break; }
+/******/ 				}
+/******/ 			}
+/******/ 			if(!script) {
+/******/ 				needAttach = true;
+/******/ 				script = document.createElement('script');
+/******/ 		
+/******/ 				script.charset = 'utf-8';
+/******/ 				script.timeout = 120;
+/******/ 				if (__webpack_require__.nc) {
+/******/ 					script.setAttribute("nonce", __webpack_require__.nc);
+/******/ 				}
+/******/ 				script.setAttribute("data-webpack", dataWebpackPrefix + key);
+/******/ 				script.src = url;
+/******/ 			}
+/******/ 			inProgress[url] = [done];
+/******/ 			var onScriptComplete = (prev, event) => {
+/******/ 				// avoid mem leaks in IE.
+/******/ 				script.onerror = script.onload = null;
+/******/ 				clearTimeout(timeout);
+/******/ 				var doneFns = inProgress[url];
+/******/ 				delete inProgress[url];
+/******/ 				script.parentNode && script.parentNode.removeChild(script);
+/******/ 				doneFns && doneFns.forEach((fn) => (fn(event)));
+/******/ 				if(prev) return prev(event);
+/******/ 			}
+/******/ 			var timeout = setTimeout(onScriptComplete.bind(null, undefined, { type: 'timeout', target: script }), 120000);
+/******/ 			script.onerror = onScriptComplete.bind(null, script.onerror);
+/******/ 			script.onload = onScriptComplete.bind(null, script.onload);
+/******/ 			needAttach && document.head.appendChild(script);
+/******/ 		};
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/make namespace object */
@@ -36461,6 +35855,119 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 			if (!module.children) module.children = [];
 /******/ 			return module;
 /******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/publicPath */
+/******/ 	(() => {
+/******/ 		var scriptUrl;
+/******/ 		if (__webpack_require__.g.importScripts) scriptUrl = __webpack_require__.g.location + "";
+/******/ 		var document = __webpack_require__.g.document;
+/******/ 		if (!scriptUrl && document) {
+/******/ 			if (document.currentScript)
+/******/ 				scriptUrl = document.currentScript.src;
+/******/ 			if (!scriptUrl) {
+/******/ 				var scripts = document.getElementsByTagName("script");
+/******/ 				if(scripts.length) {
+/******/ 					var i = scripts.length - 1;
+/******/ 					while (i > -1 && !scriptUrl) scriptUrl = scripts[i--].src;
+/******/ 				}
+/******/ 			}
+/******/ 		}
+/******/ 		// When supporting browsers where an automatic publicPath is not supported you must specify an output.publicPath manually via configuration
+/******/ 		// or pass an empty string ("") and set the __webpack_public_path__ variable from your code to use your own logic.
+/******/ 		if (!scriptUrl) throw new Error("Automatic publicPath is not supported in this browser");
+/******/ 		scriptUrl = scriptUrl.replace(/#.*$/, "").replace(/\?.*$/, "").replace(/\/[^\/]+$/, "/");
+/******/ 		__webpack_require__.p = scriptUrl;
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/jsonp chunk loading */
+/******/ 	(() => {
+/******/ 		// no baseURI
+/******/ 		
+/******/ 		// object to store loaded and loading chunks
+/******/ 		// undefined = chunk not loaded, null = chunk preloaded/prefetched
+/******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
+/******/ 		var installedChunks = {
+/******/ 			"main": 0
+/******/ 		};
+/******/ 		
+/******/ 		__webpack_require__.f.j = (chunkId, promises) => {
+/******/ 				// JSONP chunk loading for javascript
+/******/ 				var installedChunkData = __webpack_require__.o(installedChunks, chunkId) ? installedChunks[chunkId] : undefined;
+/******/ 				if(installedChunkData !== 0) { // 0 means "already installed".
+/******/ 		
+/******/ 					// a Promise means "currently loading".
+/******/ 					if(installedChunkData) {
+/******/ 						promises.push(installedChunkData[2]);
+/******/ 					} else {
+/******/ 						if(true) { // all chunks have JS
+/******/ 							// setup Promise in chunk cache
+/******/ 							var promise = new Promise((resolve, reject) => (installedChunkData = installedChunks[chunkId] = [resolve, reject]));
+/******/ 							promises.push(installedChunkData[2] = promise);
+/******/ 		
+/******/ 							// start chunk loading
+/******/ 							var url = __webpack_require__.p + __webpack_require__.u(chunkId);
+/******/ 							// create error before stack unwound to get useful stacktrace later
+/******/ 							var error = new Error();
+/******/ 							var loadingEnded = (event) => {
+/******/ 								if(__webpack_require__.o(installedChunks, chunkId)) {
+/******/ 									installedChunkData = installedChunks[chunkId];
+/******/ 									if(installedChunkData !== 0) installedChunks[chunkId] = undefined;
+/******/ 									if(installedChunkData) {
+/******/ 										var errorType = event && (event.type === 'load' ? 'missing' : event.type);
+/******/ 										var realSrc = event && event.target && event.target.src;
+/******/ 										error.message = 'Loading chunk ' + chunkId + ' failed.\n(' + errorType + ': ' + realSrc + ')';
+/******/ 										error.name = 'ChunkLoadError';
+/******/ 										error.type = errorType;
+/******/ 										error.request = realSrc;
+/******/ 										installedChunkData[1](error);
+/******/ 									}
+/******/ 								}
+/******/ 							};
+/******/ 							__webpack_require__.l(url, loadingEnded, "chunk-" + chunkId, chunkId);
+/******/ 						}
+/******/ 					}
+/******/ 				}
+/******/ 		};
+/******/ 		
+/******/ 		// no prefetching
+/******/ 		
+/******/ 		// no preloaded
+/******/ 		
+/******/ 		// no HMR
+/******/ 		
+/******/ 		// no HMR manifest
+/******/ 		
+/******/ 		// no on chunks loaded
+/******/ 		
+/******/ 		// install a JSONP callback for chunk loading
+/******/ 		var webpackJsonpCallback = (parentChunkLoadingFunction, data) => {
+/******/ 			var [chunkIds, moreModules, runtime] = data;
+/******/ 			// add "moreModules" to the modules object,
+/******/ 			// then flag all "chunkIds" as loaded and fire callback
+/******/ 			var moduleId, chunkId, i = 0;
+/******/ 			if(chunkIds.some((id) => (installedChunks[id] !== 0))) {
+/******/ 				for(moduleId in moreModules) {
+/******/ 					if(__webpack_require__.o(moreModules, moduleId)) {
+/******/ 						__webpack_require__.m[moduleId] = moreModules[moduleId];
+/******/ 					}
+/******/ 				}
+/******/ 				if(runtime) var result = runtime(__webpack_require__);
+/******/ 			}
+/******/ 			if(parentChunkLoadingFunction) parentChunkLoadingFunction(data);
+/******/ 			for(;i < chunkIds.length; i++) {
+/******/ 				chunkId = chunkIds[i];
+/******/ 				if(__webpack_require__.o(installedChunks, chunkId) && installedChunks[chunkId]) {
+/******/ 					installedChunks[chunkId][0]();
+/******/ 				}
+/******/ 				installedChunks[chunkId] = 0;
+/******/ 			}
+/******/ 		
+/******/ 		}
+/******/ 		
+/******/ 		var chunkLoadingGlobal = self["webpackChunkmvp"] = self["webpackChunkmvp"] || [];
+/******/ 		chunkLoadingGlobal.forEach(webpackJsonpCallback.bind(null, 0));
+/******/ 		chunkLoadingGlobal.push = webpackJsonpCallback.bind(null, chunkLoadingGlobal.push.bind(chunkLoadingGlobal));
 /******/ 	})();
 /******/ 	
 /************************************************************************/

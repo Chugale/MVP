@@ -9,14 +9,12 @@ const RegularGemsListEntry = ({gemObj}) => {
 
   const baseName = () => {
     let fullName = gemObj.name.split(' ').slice(1).join(' ');
-    // console.log(fullName)
     axios.get('/db/regular_gems',{
       params: {
         name: fullName
       }
     })
     .then((response) => {
-      // console.log(`this is reacted response ${gemObj.name}`, response.data[0])
       if(response.data.length  >= 1){
         setTypes(response.data[0])
       } else {

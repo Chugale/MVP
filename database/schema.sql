@@ -30,3 +30,20 @@ CSV HEADER;
 INSERT INTO gem_weight (name)
 SELECT DISTINCT name FROM initial;
 
+UPDATE gem_weight
+SET
+  superior = COALESCE(subquery.superior, 0),
+  anomalous = COALESCE(subquery.anomalous, 0),
+  divergent = COALESCE(subquery.divergent, 0),
+  phantasmal = COALESCE(subquery.phantasmal, 0)
+FROM (
+  SELECT
+    name,
+    MAX(CASE WHEN type = 'Superior' THEN weight ELSE NULL END) AS superior,
+    MAX(CASE WHEN type = 'Anomalous' THEN weight ELSE NULL END) AS anomalous,
+    MAX(CASE WHEN type = 'Divergent' THEN weight ELSE NULL END) AS divergent,
+    MAX(CASE WHEN type = 'Phantasmal' THEN weight ELSE NULL END) AS phantasmal
+  FROM initial
+  GROUP BY name
+) AS subquery
+WHERE gem_weight.name = subquery.name;
