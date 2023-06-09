@@ -8,13 +8,13 @@ const RegradeLens = ({setDivine, divine}) => {
   const getLens = () => {
     axios.get('/api/lens')
     .then((response) => {
+      let newres = response.data.slice(1)
       response.data.forEach((obj) => {
-        console.log('this is response', obj)
         if(obj.currencyTypeName === 'Divine Orb') {
           setDivine(obj.receive.value)
         }
       })
-      setLens(response.data)
+      setLens(newres)
     })
     .catch((err) => {
       console.log('APP REGRADE error', err)

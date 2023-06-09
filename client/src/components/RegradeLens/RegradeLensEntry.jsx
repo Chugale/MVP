@@ -11,9 +11,11 @@ const RegradeLensEntry = ({lenObj, divine}) => {
   }
 
   return (
-    <div>
+    <div className="flex justify-between">
       <label>
-        {lenObj.currencyTypeName}: {lenObj.receive.value.toFixed(1)}
+        {lenObj.currencyTypeName}:</label>
+      <label>
+        {lenObj.receive.value.toFixed(1)}
         <img src={chaos} className="max-w-5 max-h-5 inline"></img>
         OR {conversion()}
         <img src={div} className="max-w-5 max-h-5 inline"></img>

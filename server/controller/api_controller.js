@@ -26,33 +26,51 @@ module.exports = {
         res.sendStatus(500)
       })
   },
-  getGem_Weight: (req, res) => {
-    const options = {
-      method: 'GET',
-      url: poeNinjaApi_Gems
+  // getGem_Weight: (req, res) => {
+  //   const options = {
+  //     method: 'GET',
+  //     url: poeNinjaApi_Gems
+  //   }
+  //   return axios(options)
+  //     .then((response) => {
+  //       let gemArr = response.data.lines;
+  //       console.log('response', response.data.lines.length)
+  //       let result = {}
+  //       let fullList = gemArr.filter((gemObj) => gemObj.gemLevel >= 20 && gemObj.count >= 5);
+
+  //       // result.awakened = gemArr.filter((gemObj) => gemObj.name.includes('Awakened') === true);
+  //       // console.log('API resuits', result.regular.slice(0, 10))
+
+  //       //BELOW IS FOR TESTING
+  //       // result.regular = fullList.slice(0, 10)
+  //       result.regular = fullList
+  //       return result
+  //     })
+  //     .then((result) => {
+  //       // console.log('controller result', result)
+  //       res.status(200).send(result)
+  //     })
+  //     .catch(err => {
+  //       console.log('CONTROLLER Gem_weight error', err)
+  //       res.sendStatus(500)
+  //     })
+  // }
+  getGem_Weight: async (req, res) => {
+    try {
+      const response = await axios.get(poeNinjaApi_Gems);
+      const tooBig = response.data.lines.filter((gemObj) => gemObj.gemLevel >= 20 && gemObj.count >= 5);
+      const chunkSize = 15;
+      const result = {};
+
+      const chunkArr = []
+      for(let i = 0; i < tooBig.length; i += chunkSize) {
+        chunkArr.push(tooBig.slice(i, i + chunkSize))
+      }
+      result.regular = chunkArr
+      res.status(200).send(result)
+    } catch(err) {
+      console.log('api controller error', err)
+      res.sendStatus(500)
     }
-    return axios(options)
-      .then((response) => {
-        let gemArr = response.data.lines;
-        let result = {}
-        let fullList = gemArr.filter((gemObj) => gemObj.gemLevel >= 20 && gemObj.count >= 5);
-
-        // result.awakened = gemArr.filter((gemObj) => gemObj.name.includes('Awakened') === true);
-        // console.log('API resuits', result.regular.slice(0, 10))
-
-        // console.log('api results', fullList)
-        //BELOW IS FOR TESTING
-        // result.regular = fullList.slice(0, 10)
-        result.regular = fullList
-        return result
-      })
-      .then((result) => {
-        // console.log('controller result', result)
-        res.status(200).send(result)
-      })
-      .catch(err => {
-        console.log('CONTROLLER Gem_weight error', err)
-        res.sendStatus(500)
-      })
   }
 }

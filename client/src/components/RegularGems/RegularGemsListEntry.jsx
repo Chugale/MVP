@@ -24,6 +24,11 @@ const RegularGemsListEntry = ({gemObj}) => {
     .catch((error) => {
       console.log('this is react error', error)
     })
+  };
+
+  const taggedName = () => {
+    let tag = gemObj.name.split(' ').slice(0, 1).join('')
+    console.log(tag)
   }
 
   useEffect(() => {
@@ -33,7 +38,9 @@ const RegularGemsListEntry = ({gemObj}) => {
   return (
     <tr className="flex-box odd:bg-gray-400 even:bg-gray-300">
       <td className="px-2 py-2">{gemObj.name}</td>
-      <td className="px-2 py-2">{gemObj.gemLevel} / {gemObj.gemQuality}</td>
+      <td className="px-2 py-2">
+        {/* {gemObj.gemLevel} / {gemObj.gemQuality}  */}
+        {gemObj.variant}</td>
       <td className="flex px-2 py-2 justify-between">{gemObj.divineValue}
         <img src={div} className="flex max-w-5 max-h-5 justify-between"></img></td>
         <td className="px-2 py-2 text-center">{types.superior}</td>
