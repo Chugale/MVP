@@ -4,7 +4,7 @@ import axios from 'axios';
 const Help = {
   waitTable: () => {
     return (
-      <div className="transition-opacity duration-1000 opacity-0">
+      <div className="transition-opacity duration-500 opacity-0">
           <p>Loading...</p>
         </div>
     )

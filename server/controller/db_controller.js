@@ -3,7 +3,6 @@ const dbSuperior = require('../../database/query/dbSuperior')
 module.exports = {
   dbSuperior: (req, res) => {
     const name = req.query.name;
-
     dbSuperior({name})
       .then((data) => {
         // console.log('this is data', data.results)

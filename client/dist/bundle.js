@@ -24,7 +24,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Buttons_jsx__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Buttons.jsx */ "./client/src/components/Buttons.jsx");
 /* harmony import */ var _Search_jsx__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./Search.jsx */ "./client/src/components/Search.jsx");
 /* harmony import */ var _FallbackFunc_jsx__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./FallbackFunc.jsx */ "./client/src/components/FallbackFunc.jsx");
-/* harmony import */ var _CreateAccount_jsx__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./CreateAccount.jsx */ "./client/src/components/CreateAccount.jsx");
 
 
 
@@ -39,7 +38,6 @@ var RegularGemsList = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4___default().
 });
 // import RegularGemsList from './RegularGems/RegularGemsList.jsx';
 // import RegradeLens from './RegradeLens/RegradeLens.jsx';
-
 
 
 
@@ -170,45 +168,6 @@ var Buttons = function Buttons() {
   }, "Sextants"));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Buttons);
-
-/***/ }),
-
-/***/ "./client/src/components/CreateAccount.jsx":
-/*!*************************************************!*\
-  !*** ./client/src/components/CreateAccount.jsx ***!
-  \*************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/slicedToArray */ "./node_modules/@babel/runtime/helpers/esm/slicedToArray.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-
-
-var CreateAccount = function CreateAccount() {
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(false),
-    _useState2 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__["default"])(_useState, 2),
-    showModal = _useState2[0],
-    setShowModal = _useState2[1];
-  //set up handlers for modal
-
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("button", {
-    onClick: function onClick() {
-      return setShowModal(true);
-    }
-  }, "Register"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement(ReactModal, {
-    isOpen: showModal
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("label", null, "First Name:"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("label", null, "Last Name:"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("label", null, "Email:"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("label", null, "Password:")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("button", {
-    onClick: function onClick() {
-      return setShowModal(false);
-    }
-  }, "Cancel"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("button", null, "Register")));
-};
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (CreateAccount);
 
 /***/ }),
 

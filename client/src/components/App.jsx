@@ -9,8 +9,6 @@ import Search from './Search.jsx';
 
 import Help from './FallbackFunc.jsx';
 
-import CreateAccount from './CreateAccount.jsx'
-
 const App = () => {
 
   const [gems, setGems] = useState([]);

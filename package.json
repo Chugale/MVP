@@ -4,7 +4,7 @@
   "description": "MVP",
   "main": "index.js",
   "scripts": {
-    "tailwind": "npx tailwindcss -i .client/src/index.css -o ./dist/output.css --watch",
+    "tailwind": "npx tailwindcss -i client/src/index.css -o client/dist/output.css --watch",
     "server-dev": "nodemon server/app.js",
     "client-dev": "npx webpack --watch",
     "test": "echo \"Error: no test specified\" && exit 1",
