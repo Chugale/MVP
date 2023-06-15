@@ -7,7 +7,7 @@ const Search = ({gems, searchInput, setSearchInput}) => {
   }
 
   return (
-    <div>
+    <div className="m-8">
       <input type="text"
         placeholder="Search..."
         value={searchInput}

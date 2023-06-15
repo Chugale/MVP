@@ -191,7 +191,7 @@ __webpack_require__.r(__webpack_exports__);
 var Help = {
   waitTable: function waitTable() {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-      className: "transition-opacity duration-1000 opacity-0"
+      className: "transition-opacity duration-500 opacity-0"
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, "Loading..."));
   }
 };
@@ -220,7 +220,9 @@ var Search = function Search(_ref) {
   var handleSearch = function handleSearch(event) {
     setSearchInput(event.target.value);
   };
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("input", {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "m-8"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("input", {
     type: "text",
     placeholder: "Search...",
     value: searchInput,
