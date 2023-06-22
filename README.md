@@ -27,14 +27,14 @@ MVP is a project that was created to demonstrate the use of a full stack applica
 Clone the repository and run `npm install`:
 
 ```
-git clone https://github.com/[Chugale]/MVP.git
+git clone https://github.com/Chugale/MVP.git
 cd MVP
 npm install
 ```
 
 ## Authors and Contributors
 
-MVP was created by [Eric Lee].
+MVP was created by Eric Lee.
 
 ## Wins and Improvements
 
