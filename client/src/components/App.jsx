@@ -43,6 +43,7 @@ const App = () => {
 
   return (
     <div >
+      <h1>PoE Market Analysis</h1>
       <Suspense fallback={Help.waitTable()}>
         <div className="flex justify-center">
           <label className="text-black-700 mr-4 font-bold">Lens Price: </label>

@@ -5,3 +5,5 @@ client/dist/*.js
 client/dist/*.js.map
 .gitattributes
 client/dist/bundle.js.map
+database/moch_data.sql
+.gitignore

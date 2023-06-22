@@ -108,7 +108,7 @@ var App = function App() {
   (0,react__WEBPACK_IMPORTED_MODULE_4__.useEffect)(function () {
     getGems();
   }, []);
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4___default().createElement(react__WEBPACK_IMPORTED_MODULE_4__.Suspense, {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4___default().createElement("h1", null, "PoE Market Analysis"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4___default().createElement(react__WEBPACK_IMPORTED_MODULE_4__.Suspense, {
     fallback: _FallbackFunc_jsx__WEBPACK_IMPORTED_MODULE_8__["default"].waitTable()
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4___default().createElement("div", {
     className: "flex justify-center"
